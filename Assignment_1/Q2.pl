@@ -1,41 +1,31 @@
-is_element(_, []) :-
-    fail.
-
-is_element(X, [H | _]):-
-    X = H, !.
-
-is_element(X, [_|T]):-
-    is_element(X, T).
-
 sum([], X) :-
-    X = 0, !.
+    X = 0.
 
 sum([H | T], X) :-
     sum(T, X_),
-    X is H + X_, ! .
+    X is H + X_.
 
-is_acceptable([]) :- 
-    fail, !.
+is_acceptable([_ | []], _).
 
-is_acceptable([H | T]) :-
-    T = [], !.
+is_acceptable([H1 | [H2 | T]], X) :-
+    sum([H1 | [H2 | T]], Sum),
+    Sum >= X.
 
-is_acceptable(List, x) :-
-    sum(List, Sum),
-    Sum >= x.
+sublists([], [], []).
 
-partition([], [], []) :- !.
+sublists([], [H | T], [H | T]).
 
-partition(L, [], L) :- !.
+sublists([H | T], [], [H | T]).
 
-partition([], L, L) :- !.
+sublists([H | T1], [H2 | T2], [H | T]) :-
+    sublists(T1, [H2 | T2], T).
 
-partition([H | T], L2, L) :-
-    is_element(H, L),
-    partition(T, L2, L).
+can_split([_ | []], _).
 
-partition(L1, [H | T2], L) :-
-    is_element(H, L),
-    partition(L1, T2, L).
-
-can_split()
+can_split(L, X) :-
+    sublists(L1, L2, L),
+    is_acceptable(L1, X),
+    is_acceptable(L2, X),
+    can_split(L1, X),
+    can_split(L2, X),
+    !.
