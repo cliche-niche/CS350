@@ -1,0 +1,1 @@
++ [Assignment 1](./Assignment_1/): Solve problems using Logic Programming (Prolog specifically).
