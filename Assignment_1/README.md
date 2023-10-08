@@ -1,4 +1,4 @@
-The program files were tested using swipl. Brief running instructions have been provided below on how to use the Prolog files after loading them using the command `['filename']` <i>(including the inverted commas)</i>
+The program files were tested using `swipl`. Brief running instructions have been provided below on how to use the Prolog files after loading them using the command `['filename']` <i>(including the inverted commas)</i>
 
 + [Q1.pl](./Q1.pl): `union(S1, S2, L).`  where the variable "S1" and "S2" are the 2 lists whose union is to be found, "L" is the output variable that contains the Union.
 
