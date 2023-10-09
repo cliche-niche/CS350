@@ -33,3 +33,4 @@ The program files were tested using `ghci`. Brief instructions for running have 
 "head"
 ```
 + [Q3.hs](./Q3.hs): TBD.
++ [Q4.hs](./Q4.hs): TBD.

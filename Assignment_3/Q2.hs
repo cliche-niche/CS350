@@ -26,7 +26,7 @@ firstchar _ (Leaf c) = c
 -- Base Case: List terminates in the middle of the tree (on an internal node)
 firstchar [] _ = error "Given list does not correspond to a valid string (The list likely terminates on an internal node of the tree)"
 -- Traverse the tree according to the list
-firstchar (x:xs) (Node l r) = 
+firstchar (x : xs) (Node l r) = 
     if x == 0 then firstchar xs l
     else if x == 1 then firstchar xs r
     else error "Given list does not correspond to a valid string (The list likely has an Int other than 0/1)" 
