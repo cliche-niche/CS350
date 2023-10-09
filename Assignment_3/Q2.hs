@@ -43,5 +43,3 @@ decode xs ht = [firstchar xs ht] ++ decode (drop (length (path ht (head (decode 
 -- Concatenates paths from the root to each character in the given [Char].
 encode:: [Char] -> Btree Char -> [Int]
 encode cs ht = [x | xs <- map (path ht) cs, x <- xs]
-
--- ht = Node (Leaf 'a') (Node (Node (Leaf 'b') (Node (Leaf 'c') (Leaf 'd'))) (Node (Node (Leaf 'e') (Leaf 'f')) (Node  (Leaf 'g') (Leaf 'h'))))
