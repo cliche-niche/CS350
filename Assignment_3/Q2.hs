@@ -1,6 +1,7 @@
 -- Q2
 -- Assumption: A character is present in atmost one leaf, i.e., multiple paths from the root to a character are not possible.
 data Btree a = Node (Btree a) (Btree a) | Leaf a
+               deriving (Show, Eq)
 
 -- Utils
 -- Checks if the given character is present in the tree or not 

@@ -1,7 +1,9 @@
 -- ! Testing remains, cannot print trees as of now
 -- Q3
-data Gtree a = Gnode a [Gtree a]
+data Gtree a = Gnode a [Gtree a] 
+               deriving (Show, Eq)
 data Btree a = Bnode (Btree a) (Btree a) | Leaf a
+               deriving (Show, Eq)
 
 -- Utils
 -- Finds the leftmost leaf in a Btree
@@ -31,4 +33,4 @@ b2g :: Btree Char -> Gtree Char
 b2g (Leaf c) = Gnode c []
 -- Gnode has the name of the function (leftmost leaf), and a list of parameters (params l ++ right child of current node)
 -- Need to recursively convert all parameter nodes to Gtree, hence `b2g` has been mapped onto the list
-b2g (Bnode l r) = Gnode (leftmost l) (map b2g (params l ++ [b2g r]))
+b2g (Bnode l r) = Gnode (leftmost l) (map b2g (params l ++ [r]))
