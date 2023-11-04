@@ -1,5 +1,8 @@
 -- Q2
--- Assumption: A character is present in atmost one leaf, i.e., multiple paths from the root to a character are not possible.
+-- Assumption #1: A character is present in atmost one leaf, i.e., 
+-- multiple paths from the root to a character are not possible.
+-- Assumption #2: If the whole tree contains only one node, i.e., 
+-- the whole tree is just a leaf, then no encoding/decoding is possible.
 data Btree a = Node (Btree a) (Btree a) | Leaf a
                deriving (Show, Eq)
 
@@ -36,6 +39,7 @@ firstchar (x : xs) (Node l r) =
 -- Q2(a)
 decode :: [Int] -> Btree Char -> [Char]
 -- Base Case
+decode _ (Leaf _) = error "Tree contains only one node, no decoding/encoding possible"
 decode [] _ = []
 -- Finds the first character, drops all the nodes (0s and 1s) corresponding to it, and recurs on the remaining list
 decode xs ht = [firstchar xs ht] ++ decode (drop (length (path ht (head (decode xs ht)))) xs) ht
@@ -43,4 +47,5 @@ decode xs ht = [firstchar xs ht] ++ decode (drop (length (path ht (head (decode 
 -- Q2(b)
 -- Concatenates paths from the root to each character in the given [Char].
 encode:: [Char] -> Btree Char -> [Int]
+encode _ (Leaf _) = error "Tree contains only one node, no decoding/encoding possible"
 encode cs ht = [x | xs <- map (path ht) cs, x <- xs]

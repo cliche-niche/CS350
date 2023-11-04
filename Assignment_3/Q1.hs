@@ -1,7 +1,7 @@
 -- Q1
 data BTree a = Node (BTree a) a (BTree a)
              |   Null
-             deriving (Show, Eq)
+             deriving (Show)
 
 -- Finds height of a BTree
 -- Used as a util in `dia`

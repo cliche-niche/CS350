@@ -1,4 +1,3 @@
--- ! Testing remains, cannot print trees as of now
 -- Q3
 data Gtree a = Gnode a [Gtree a] 
                deriving (Show, Eq)
