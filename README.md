@@ -1,4 +1,4 @@
-This repository contains assignment submissions made in the course CS350 (2022-24 I Sem.) at IIT-K in a team of two (Aryan ["Aryans-20"](https://github.com/Aryans-20) Sharma, and me, ["cliche-niche"](https://github.com/cliche-niche)).
+This repository contains assignment submissions made in the course CS350 (2023-24 I Sem.) at IIT-K in a team of two (Aryan ["Aryans-20"](https://github.com/Aryans-20) Sharma, and me, ["cliche-niche"](https://github.com/cliche-niche)).
 
 A brief description of each assignment is provided below:
 
